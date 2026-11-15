@@ -1,0 +1,267 @@
+<!DOCTYPE html><html><head><base target="_top"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+body{margin:0;background:#f4f5f7;color:#202124;font-family:Arial,sans-serif}.wrap{max-width:920px;margin:auto;padding:18px}.head{background:#173b35;color:white;padding:22px;border-radius:14px}.card{background:white;border-radius:12px;padding:16px;margin:12px 0;box-shadow:0 1px 4px #0001}input,select,button{font:inherit;padding:12px;border:1px solid #ccd1d5;border-radius:8px;width:100%;box-sizing:border-box;margin:6px 0}button{background:#173b35;color:white;border:0;font-weight:bold}.muted,.small{color:#697078;font-size:13px}.amount{font-size:30px;font-weight:bold}.item{padding:10px 0;border-bottom:1px solid #eee}.hidden{display:none}table{width:100%;border-collapse:collapse;font-size:14px}td,th{text-align:left;padding:8px 4px;border-bottom:1px solid #eee}.alert{color:#a33;font-weight:bold}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+#login{max-width:480px;margin:22px auto;text-align:center}
+.version-label{display:inline-block;margin:0 auto 8px;padding:5px 11px;border:1px solid #e6d5a9;border-radius:20px;background:#f8e9bd;color:#644812;font-size:11px;font-weight:700;letter-spacing:.8px}
+#login h2{color:#173b35}#login p{color:#697078;font-size:14px;line-height:1.5}
+#code{text-align:center;font-size:22px;letter-spacing:5px;font-weight:700}
+.login-status{min-height:18px;margin:8px 0;color:#526477;font-size:13px}
+.paypal-placeholder{border:1px solid #d9e5ef!important;background:linear-gradient(135deg,#f7fbff,#fff)!important}
+.paypal-placeholder button{background:#0070ba!important;color:#fff!important;box-shadow:none!important}
+.paypal-placeholder button:active{transform:translateY(1px)}
+body.colleague-mode{background:#f5f7fa;color:#172536}
+body.colleague-mode .head{position:relative;overflow:hidden;background:linear-gradient(130deg,#10243a,#1c405a);border:1px solid #29455d;border-radius:18px;box-shadow:0 10px 28px #10243a22}
+body.colleague-mode .head h1{margin:0 0 5px;font-size:30px;letter-spacing:1px}
+.head h1:before{content:"🧺 ";font-size:.85em}
+body.colleague-mode .head h1,body.colleague-mode .head:after{position:relative;z-index:1}
+.roadmap{margin-top:10px;padding:10px 12px;border-radius:10px;background:#10243a;color:#fff;font-size:12px;line-height:1.55}.roadmap b{color:#f6d98e}
+body.colleague-mode .head:after{content:"BOISSONS  •  EN-CAS  •  CONVIVIALITÉ";display:block;color:#f6d98e;font-size:11px;letter-spacing:2px;margin-top:9px}
+body.colleague-mode .card{background:white;border:1px solid #e7ebf0;border-radius:16px;box-shadow:0 5px 18px #10243a0a}
+body.colleague-mode input,body.colleague-mode select{border:1px solid #d5dce5;border-radius:10px;padding:13px 14px;background:white;color:#172536}
+body.colleague-mode button{background:linear-gradient(110deg,#dba93e,#f0ce78);color:#14283c;border:0;border-radius:10px;padding:13px 14px;box-shadow:0 4px 10px #b985292b}
+body.colleague-mode .muted,body.colleague-mode .small{color:#718096}
+body.colleague-mode .amount{color:#10243a;font-size:34px;font-weight:800}
+body.colleague-mode .colleague-hero .amount{color:#f6d98e;font-size:38px;font-weight:800}
+body.colleague-mode #login{background:linear-gradient(145deg,#fff,#f8fafc);border:1px solid #e6d5a9;border-radius:16px;padding:26px}
+body.colleague-mode #login h2{color:#10243a}
+body.colleague-mode #code{text-align:center;font-size:22px;letter-spacing:5px;font-weight:700}
+.colleague-hero{background:linear-gradient(135deg,#10243a,#1b405b);color:white;border-radius:18px;padding:22px;margin:14px 0;box-shadow:0 8px 22px #10243a20}
+.colleague-hero h2{margin:0 0 15px;font-size:22px}.colleague-hero .muted{color:#d5e0ea}.colleague-hero .amount{color:#f6d98e;font-size:38px}
+.hero-balance-row{display:flex;justify-content:space-between;align-items:center;gap:18px}
+.hero-balance-info{min-width:0;flex:1}
+.hero-balance-info p{margin:8px 0 0}
+.paypal-hero-button{flex:0 0 auto;width:auto!important;min-width:154px;margin:0!important;padding:12px 15px!important;background:#0070ba!important;color:#fff!important;border:1px solid #4b9dcc!important;border-radius:11px!important;box-shadow:0 4px 12px #001b332e!important;font-size:14px!important;white-space:nowrap}
+.paypal-hero-button:active{transform:translateY(1px)}
+@media(max-width:480px){.colleague-hero{padding:17px}.hero-balance-row{gap:10px}.paypal-hero-button{min-width:118px;padding:11px 9px!important;font-size:12px!important;white-space:normal}.colleague-hero .amount{font-size:32px}}
+.section-title{color:#10243a;margin:0 0 12px;font-size:18px}.action-card{border:1px solid #e7d5a7!important;background:linear-gradient(135deg,#fff,#fffcf4)!important}
+.action-card button{margin-top:12px}.welcome-tag{display:inline-block;background:#f8e9bd;color:#644812;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:12px}
+@media(max-width:600px){.wrap{padding:12px}body.colleague-mode .head{padding:20px}body.colleague-mode .head h1{font-size:26px}body.colleague-mode .card{padding:16px}.colleague-hero{padding:19px}}
+@media print{.head,#login,.no-print{display:none!important}.wrap{max-width:none;padding:0}.card{box-shadow:none;border:1px solid #ddd;break-inside:avoid}}
+
+/* Décorations légères réservées à l'espace collègue */
+body.colleague-mode .colleague-hero{position:relative;overflow:hidden}
+.popote-mascot{float:right;font-size:42px;line-height:1;margin:0 4px 8px 12px;filter:drop-shadow(0 4px 5px #0003);animation:popoteBob 2.8s ease-in-out infinite}
+@keyframes popoteBob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-7px) rotate(4deg)}}
+.popote-snow{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.popote-snow i{position:absolute;top:-12px;color:#fff;opacity:.75;font-style:normal;animation:popoteSnow linear infinite}
+.popote-snow i:nth-child(1){left:12%;animation-duration:5.5s;animation-delay:-2s}
+.popote-snow i:nth-child(2){left:36%;animation-duration:7s;animation-delay:-4s}
+.popote-snow i:nth-child(3){left:62%;animation-duration:6s;animation-delay:-1s}
+.popote-snow i:nth-child(4){left:86%;animation-duration:8s;animation-delay:-5s}
+@keyframes popoteSnow{0%{transform:translateY(-8px);opacity:0}15%{opacity:.8}100%{transform:translateY(58px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.popote-mascot,.popote-snow i{animation:none!important}}
+
+
+/* Lecture rapide des dernières consommations : saisie normale vs annulation */
+.activity-item{padding:11px 12px;margin:7px 0;border:1px solid #e4e9ed;border-left:4px solid #9eb5c5;border-radius:9px;background:#f7fafc;line-height:1.45}
+.activity-item.cancellation{background:#fff7f5;border-color:#f1ded8;border-left-color:#d58b78}
+.activity-item.cancelled-original{background:#f8f8f8;border-left-color:#b8bec4;color:#68717a}
+.activity-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:3px}
+.activity-badge{display:inline-block;padding:2px 7px;border-radius:12px;font-size:10px;font-weight:700;letter-spacing:.35px;background:#e7eff4;color:#36576c}
+.cancellation .activity-badge{background:#f8e2dc;color:#934a3a}
+.cancelled-original .activity-badge{background:#e9ecef;color:#626b73}
+.activity-detail{font-size:13px;color:#303b43}
+.activity-item button{margin-top:7px}
+
+
+/* V1.13 — compteur mensuel personnel */
+.monthly-counter{border:1px solid #dce6ee!important;background:linear-gradient(145deg,#fff,#f7fafc)!important}
+.monthly-counter-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.monthly-counter-month{padding:5px 9px;border-radius:20px;background:#edf2f7;color:#38536a;font-size:11px;font-weight:700;text-transform:capitalize}
+.monthly-counter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.monthly-counter-tile{padding:13px 12px;border-radius:13px;min-width:0}
+.monthly-counter-tile .counter-icon{font-size:20px;line-height:1.2;margin-bottom:5px}
+.monthly-counter-tile .counter-number{font-size:27px;font-weight:800;line-height:1.1}
+.monthly-counter-tile .counter-label{font-size:12px;font-weight:700;margin-top:4px}
+.monthly-counter-total{margin-top:10px;padding:12px 14px;border-radius:12px;background:#10243a;color:white;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.monthly-counter-total strong{font-size:22px;color:#f6d98e}
+.monthly-counter-note{font-size:11px;color:#718096;margin:9px 2px 0}
+@media(min-width:620px){.monthly-counter-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* V1.15.13 — rubriques d'historique repliables dans l'espace collègue */
+.member-accordion{padding:12px 16px!important}
+.member-accordion-trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin:0!important;padding:7px 2px!important;background:transparent!important;color:#10243a!important;border:0!important;border-radius:8px!important;box-shadow:none!important;text-align:left;font-weight:700;font-size:16px}
+.member-accordion-trigger:focus-visible{outline:2px solid #dba93e;outline-offset:3px}
+.accordion-chevron{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#edf2f7;color:#38536a;font-size:20px;line-height:1;flex:0 0 28px}
+/* V1.12 — historique personnel et boîte à idées */
+.history-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 14px}
+body.colleague-mode .history-tabs button{margin:0;background:#edf1f5;color:#24384b;box-shadow:none;border:1px solid #dbe2e9}
+body.colleague-mode .history-tabs button.active{background:linear-gradient(110deg,#dba93e,#f0ce78);color:#14283c;border-color:#dba93e}
+.history-entry{padding:12px 10px;margin:8px 0;border:1px solid #e3e9ef;border-left:4px solid #9eb5c5;border-radius:10px;background:#f8fafc}
+.history-entry.cancellation{background:#fff7f5;border-color:#f1ded8;border-left-color:#d58b78}
+.history-entry.cancelled-original{background:#f3f4f5;border-left-color:#b8bec4;color:#68717a}
+.history-entry .activity-meta{margin-bottom:5px}
+.idea-coming{border:1px dashed #d4b56d!important;background:linear-gradient(135deg,#fffdf7,#fff)!important}
+.idea-coming .coming-label{display:inline-block;margin-bottom:8px;padding:4px 8px;border-radius:12px;background:#f8e9bd;color:#644812;font-size:10px;font-weight:700;letter-spacing:.5px}
+
+/* V1.15.3 — panier animé pendant la reconnexion */
+.resume-basket{width:54px;height:54px;margin:0 auto 13px;animation:resumeBasketBob 1.15s ease-in-out infinite}
+.resume-basket svg{display:block;width:100%;height:100%;filter:drop-shadow(0 3px 3px #10243a22)}
+.resume-message{font-size:16px;font-weight:700;color:#173b55}
+@keyframes resumeBasketBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media(prefers-reduced-motion:reduce){.resume-basket{animation:none}}
+
+#popoteBusy{position:fixed;inset:0;z-index:9999;background:rgba(16,36,58,.24);display:none;align-items:center;justify-content:center;padding:20px}
+#popoteBusy .busy-card{background:#fff;border-radius:16px;padding:20px 24px;box-shadow:0 12px 36px #10243a33;text-align:center;min-width:210px;color:#173b55;font-weight:700}
+#popoteBusy .spinner{width:30px;height:30px;border:3px solid #e6edf3;border-top-color:#dba93e;border-radius:50%;margin:0 auto 12px;animation:popoteSpin .8s linear infinite}
+@keyframes popoteSpin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){#popoteBusy .spinner{animation:none}}
+
+/* V1.15.5 — rappel de règlement et confirmation de consommation */
+.payment-reminder{display:flex;align-items:flex-start;gap:11px;margin:12px 0;padding:13px 15px;border:1px solid #f0d99d;border-left:4px solid #dba93e;border-radius:12px;background:linear-gradient(120deg,#fff9e9,#fffdf7);color:#39495a;line-height:1.45}
+.payment-reminder .reminder-icon{font-size:22px;line-height:1.2}
+.payment-reminder strong{display:block;color:#72531b;margin-bottom:2px}
+.consume-celebration{position:fixed;z-index:10001;left:50%;top:45%;transform:translate(-50%,-50%);padding:17px 23px;border-radius:18px;background:#10243a;color:white;box-shadow:0 14px 40px #10243a55;text-align:center;min-width:210px;animation:consumePop .55s cubic-bezier(.2,.85,.25,1.25) both;pointer-events:none}
+.consume-celebration .celebration-check{display:block;width:42px;height:42px;margin:0 auto 8px;border-radius:50%;background:#f6d98e;color:#10243a;font-size:27px;line-height:42px;font-weight:800}
+.consume-celebration strong{display:block;font-size:15px}.consume-celebration span:last-child{display:block;margin-top:3px;color:#d5e0ea;font-size:12px}
+@keyframes consumePop{0%{opacity:0;transform:translate(-50%,-40%) scale(.72)}65%{opacity:1;transform:translate(-50%,-53%) scale(1.06)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@media(prefers-reduced-motion:reduce){.consume-celebration{animation:none}}
+
+/* V1.15.9 — catégories mises en valeur sobrement */
+.consumption-product{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid #edf0f3}
+.consumption-product:last-child{border-bottom:0}
+.consumption-product-name{min-width:0;display:flex;align-items:center;gap:9px;font-size:15px;font-weight:750;color:#20384d;letter-spacing:.1px;overflow-wrap:anywhere}
+.consumption-product-name::before{content:"";display:inline-block;flex:0 0 9px;width:9px;height:9px;border-radius:50%;background:#173b55}
+.consumption-product.category-barres .consumption-product-name::before{background:#a65b26}
+.consumption-product.category-bonbons .consumption-product-name::before{background:#a33d65}
+.consumption-product.category-glaces .consumption-product-name::before{background:#347348}
+.consumption-product-price{font-size:13px;font-weight:700;color:#536579;white-space:nowrap}
+body.colleague-mode .consumption-product button{width:auto;min-width:104px;margin:0;padding:9px 12px;border-radius:9px;font-size:12px;white-space:nowrap}
+body.colleague-mode .consumption-product button:disabled{opacity:.55}
+@media(max-width:380px){.consumption-product{gap:6px}.consumption-product-name{font-size:13px}.consumption-product-price{font-size:12px}body.colleague-mode .consumption-product button{min-width:88px;padding:9px 8px;font-size:11px}}
+</style></head><body class="colleague-mode"><div id="popoteBusy" role="status" aria-live="polite"><div class="busy-card"><div class="spinner"></div><span id="popoteBusyText">Traitement en cours…</span></div></div><div class="wrap"><div class="head"><h1>LA POPOTE</h1>Votre espace de consommation<span class="popote-snow" aria-hidden="true"><i>✦</i><i>❄</i><i>✧</i><i>❄</i></span></div><div class="card hidden" id="resumeStatus" role="status" aria-live="polite" style="max-width:480px;margin:22px auto;text-align:center;padding:28px"><div class="resume-basket" aria-hidden="true"><svg viewBox="0 0 64 64" role="img" focusable="false"><path d="M13 25h38l-4.2 27H17.2L13 25Z" fill="#dba93e" stroke="#173b55" stroke-width="3" stroke-linejoin="round"/><path d="m23 25 9-15 9 15" fill="none" stroke="#173b55" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 33v11M32 33v11M41 33v11" stroke="#173b55" stroke-width="3" stroke-linecap="round"/><path d="M9 25h46" stroke="#173b55" stroke-width="4" stroke-linecap="round"/></svg></div><div class="resume-message">Reconnexion en cours…</div></div><div class="card" id="login"><h2>Bienvenue à La Popote</h2><div class="version-label">VERSION ACTUELLE : V1.15.13</div><p>Votre espace boissons, encas et convivialité.<br>Connectez-vous avec votre code personnel.</p><input id="code" inputmode="text" autocomplete="current-password" maxlength="100" placeholder="Votre code personnel"><button id="loginButton" onclick="connect()">Accéder à mon compte</button><div id="loginStatus" class="login-status" role="status" aria-live="polite"></div><label class="small" style="display:block;margin:8px"><input id="rememberAccess" type="checkbox" style="width:auto;margin-right:6px"> Garder ma connexion sur cet appareil pendant 30 jours</label><div class="roadmap"><b>Évolutions La Popote</b><br>V1 · Gestion des consommations, paiements et stocks<br>V2 · Historique et suivi améliorés<br>V3 · Suggestions et nouveautés</div><p class="small">Code PIN à 6 chiffres pour les collègues.</p></div><div id="app" class="hidden"></div></div>
+<script>
+let accessCode="",dashboard=null,rememberToken="",historyTab="consumptions",memberHistoryOpen=false,memberPaymentsOpen=false,busyDepth=0;
+const money=v=>Number(v||0).toLocaleString("fr-FR",{style:"currency",currency:"EUR"});
+function setBusy(on,label){busyDepth=Math.max(0,busyDepth+(on?1:-1));const el=document.getElementById("popoteBusy");if(!el)return;document.getElementById("popoteBusyText").textContent=label||"Traitement en cours…";el.style.display=busyDepth?"flex":"none";document.querySelectorAll("button").forEach(b=>{if(b.id!=="loginButton")b.disabled=!!busyDepth;});}
+function call(fn,args,ok){setBusy(true,"Enregistrement en cours…");google.script.run.withSuccessHandler(r=>{setBusy(false);if(ok)ok(r);}).withFailureHandler(e=>{setBusy(false);alert(e.message||e);})[fn](...args);}
+
+// Stockage de secours : stockage local classique, puis IndexedDB. Dans la PWA,
+// le jeton est conservé par la page GitHub de premier niveau pour éviter les
+// restrictions de stockage des iframes tierces sur iOS/Safari.
+const REMEMBER_KEY="popoteRemember";
+function idbRemember(mode,value){return new Promise((resolve,reject)=>{if(!window.indexedDB)return reject(new Error("IndexedDB indisponible"));const req=indexedDB.open("LaPopoteSession",1);req.onupgradeneeded=()=>req.result.createObjectStore("session");req.onerror=()=>reject(req.error);req.onsuccess=()=>{const db=req.result,tx=db.transaction("session",mode),store=tx.objectStore("session");let r;if(mode==="readonly")r=store.get(REMEMBER_KEY);else if(value===null)r=store.delete(REMEMBER_KEY);else r=store.put(value,REMEMBER_KEY);r.onsuccess=()=>resolve(mode==="readonly"?r.result:null);r.onerror=()=>reject(r.error);tx.oncomplete=()=>db.close();};});}
+let bridgeSeq=0;const bridgeWaiters={};window.addEventListener("message",e=>{if(e.data&&e.data.type==="POPOte_SESSION_RESULT"&&bridgeWaiters[e.data.id]){bridgeWaiters[e.data.id](e.data.value);delete bridgeWaiters[e.data.id];}});
+function bridgeSession(action,value){return new Promise((resolve,reject)=>{if(window.parent===window)return reject(new Error("Pas de page hôte"));const id="popote_"+(++bridgeSeq);const timer=setTimeout(()=>{delete bridgeWaiters[id];reject(new Error("Pont de stockage indisponible"));},1800);bridgeWaiters[id]=v=>{clearTimeout(timer);resolve(v);};window.parent.postMessage({type:"POPOte_SESSION",id,action,value},"*");});}
+async function getRememberToken(){try{if(window.parent!==window)return await bridgeSession("get");}catch(e){}try{const v=localStorage.getItem(REMEMBER_KEY);if(v)return v;}catch(e){}try{return await idbRemember("readonly");}catch(e){return null;}}
+async function saveRememberToken(token){let saved=false;try{if(window.parent!==window){await bridgeSession("set",token);return true;}}catch(e){}try{localStorage.setItem(REMEMBER_KEY,token);saved=true;}catch(e){}if(!saved){try{await idbRemember("readwrite",token);saved=true;}catch(e){}}return saved;}
+async function removeRememberToken(){try{if(window.parent!==window){await bridgeSession("remove");return;}}catch(e){}try{localStorage.removeItem(REMEMBER_KEY);}catch(e){}try{await idbRemember("readwrite",null);}catch(e){}}
+function connect(){
+  const pin=document.getElementById("code").value.trim(),btn=document.getElementById("loginButton"),status=document.getElementById("loginStatus");
+  if(!/^\d{6}$/.test(pin)&&pin.length<20){alert("Saisissez votre ancien code administrateur ou un PIN à 6 chiffres.");return;}
+  btn.disabled=true;btn.textContent="Connexion en cours…";status.textContent="Vérification de votre code et chargement de votre espace…";setBusy(true,"Connexion en cours…");
+  google.script.run.withSuccessHandler(async r=>{
+    accessCode=r.session;rememberToken=r.rememberToken||"";let persisted=true;if(rememberToken)persisted=await saveRememberToken(rememberToken);
+    google.script.run.withSuccessHandler(d=>{setBusy(false);dashboard=d;memberHistoryOpen=false;memberPaymentsOpen=false;login.classList.add("hidden");document.body.classList.toggle("colleague-mode",dashboard.user.role!=="admin");render();if(rememberToken&&!persisted)alert("Connexion réussie, mais cet appareil n'a pas pu mémoriser la session. Vérifiez les réglages de confidentialité du navigateur.");})
+      .withFailureHandler(e=>{setBusy(false);btn.disabled=false;btn.textContent="Accéder à mon compte";status.textContent="";alert(e.message||e);})
+      .getDashboard(accessCode);
+  }).withFailureHandler(e=>{setBusy(false);btn.disabled=false;btn.textContent="Accéder à mon compte";status.textContent="";alert(e.message||e);})
+    .login(pin,!!document.getElementById("rememberAccess")?.checked);
+}
+async function resumeRemembered(){
+  const t=await getRememberToken();const loginPanel=document.getElementById("login"),resumePanel=document.getElementById("resumeStatus");
+  if(!t){loginPanel.classList.remove("hidden");resumePanel.classList.add("hidden");return;}
+  rememberToken=t;loginPanel.classList.add("hidden");resumePanel.classList.remove("hidden");setBusy(true,"Reconnexion en cours…");
+  google.script.run.withSuccessHandler(r=>{accessCode=r.session;google.script.run.withSuccessHandler(d=>{setBusy(false);dashboard=d;memberHistoryOpen=false;memberPaymentsOpen=false;resumePanel.classList.add("hidden");document.body.classList.toggle("colleague-mode",dashboard.user.role!=="admin");render();}).withFailureHandler(e=>{setBusy(false);resumePanel.classList.add("hidden");loginPanel.classList.remove("hidden");document.getElementById("loginButton").disabled=false;document.getElementById("loginButton").textContent="Accéder à mon compte";document.getElementById("loginStatus").textContent="La reconnexion automatique a échoué. Connectez-vous avec votre code personnel.";}).getDashboard(accessCode);}).withFailureHandler(async e=>{setBusy(false);await removeRememberToken();resumePanel.classList.add("hidden");loginPanel.classList.remove("hidden");document.getElementById("loginButton").disabled=false;document.getElementById("loginButton").textContent="Accéder à mon compte";document.getElementById("loginStatus").textContent="Votre session mémorisée doit être renouvelée. Connectez-vous avec votre code personnel.";}).resumeSession(t);
+}
+
+function paypalComingSoon(){alert("Le paiement PayPal sera bientôt disponible. Aucun paiement ni crédit de solde n’est effectué pour le moment.");}
+function signOut(){call("logout",[accessCode,rememberToken],async()=>{await removeRememberToken();accessCode="";rememberToken="";dashboard=null;app.classList.add("hidden");login.classList.remove("hidden");code.value="";const btn=document.getElementById("loginButton");btn.disabled=false;btn.textContent="Accéder à mon compte";document.getElementById("loginStatus").textContent="";});}
+function greeting(){const h=new Date().getHours();return (h>=17||h<5)?"Bonsoir":"Bonjour";}
+function render(){app.classList.remove("hidden");if(dashboard.user.role!=="admin"){app.innerHTML=`
+<div class="colleague-hero"><span class="popote-mascot" aria-label="Mascotte La Popote">🥤</span><span class="welcome-tag">ESPACE COLLÈGUE</span><h2>${greeting()} ${esc(dashboard.user.name)} !</h2><div class="hero-balance-row"><div class="hero-balance-info"><div class="muted">Votre solde actuel</div><div class="amount">${money(dashboard.balance.balance)}</div><p class="muted">Total dû : ${money(dashboard.balance.due)} &nbsp;·&nbsp; Déjà payé : ${money(dashboard.balance.paid)}</p></div><button class="paypal-hero-button" type="button" onclick="paypalComingSoon()">Recharger avec PayPal</button></div></div>
+${dashboard.showPaymentReminder?`<div class="payment-reminder" role="status"><span class="reminder-icon" aria-hidden="true">📌</span><div><strong>Petit rappel du début de mois</strong>Pensez à régulariser votre solde de ${money(dashboard.balance.balance)} auprès de La Popote. Ce rappel disparaîtra automatiquement une fois votre solde réglé.</div></div>`:""}
+<div class="card action-card"><h3 class="section-title">Déclarer une consommation</h3><p class="muted">Choisissez une catégorie pour enregistrer votre consommation.</p>${consumptionCatalogHtml()}</div>
+<div class="card monthly-counter">
+  <div class="monthly-counter-head"><h3 class="section-title" style="margin:0">Mon compteur du mois</h3><span class="monthly-counter-month">${esc(dashboard.monthlyStats?.monthLabel||"Mois en cours")}</span></div>
+  <div class="monthly-counter-grid">
+    <div class="monthly-counter-tile" style="background:#eaf3fa;color:#173b55"><div class="counter-icon">🥤</div><div class="counter-number">${Number(dashboard.monthlyStats?.drinks||0)}</div><div class="counter-label">Boissons</div></div>
+    <div class="monthly-counter-tile" style="background:#fff1e5;color:#a65b26"><div class="counter-icon">🍫</div><div class="counter-number">${Number(dashboard.monthlyStats?.bars||0)}</div><div class="counter-label">Barres</div></div>
+    <div class="monthly-counter-tile" style="background:#fceaf0;color:#a33d65"><div class="counter-icon">🍬</div><div class="counter-number">${Number(dashboard.monthlyStats?.candies||0)}</div><div class="counter-label">Bonbons</div></div>
+    <div class="monthly-counter-tile" style="background:#eaf5ec;color:#347348"><div class="counter-icon">🍦</div><div class="counter-number">${Number(dashboard.monthlyStats?.iceCreams||0)}</div><div class="counter-label">Glaces</div></div>
+  </div>
+  <div class="monthly-counter-total"><span><span style="display:block;font-size:11px;letter-spacing:.5px;opacity:.8">TOTAL DU MOIS</span><span style="font-size:12px;opacity:.85">Unités consommées</span></span><strong>${Number(dashboard.monthlyStats?.total||0)}</strong></div>
+  <p class="monthly-counter-note">Compteur remis à zéro automatiquement au début de chaque mois. Votre historique personnel, lui, est conservé.</p>
+</div>
+<div class="card member-accordion">
+  <button class="member-accordion-trigger" type="button" aria-expanded="${memberHistoryOpen}" onclick="toggleMemberPanel('history')"><span>Mon historique</span><span class="accordion-chevron">${memberHistoryOpen?"−":"+"}</span></button>
+  ${memberHistoryOpen?`<p class="muted">Retrouvez toutes vos consommations, y compris celles des mois précédents.</p>${memberHistoryHtml("consumptions")}`:""}
+</div>
+<div class="card member-accordion">
+  <button class="member-accordion-trigger" type="button" aria-expanded="${memberPaymentsOpen}" onclick="toggleMemberPanel('payments')"><span>Mes paiements</span><span class="accordion-chevron">${memberPaymentsOpen?"−":"+"}</span></button>
+  ${memberPaymentsOpen?`<p class="muted">Retrouvez tous vos règlements, y compris ceux des mois précédents.</p>${memberHistoryHtml("payments")}`:""}
+</div>
+<div class="card idea-coming"><span class="coming-label">FONCTIONNALITÉ À VENIR</span><h3 class="section-title">Boîte à idées</h3><p class="muted">Une idée de produit, une suggestion ou une amélioration pour La Popote ? Cet espace vous permettra prochainement de partager vos propositions avec les administrateurs.</p><p class="small">La boîte à idées n'est pas encore ouverte.</p></div>
+<div class="small" style="text-align:center;padding:8px 0 18px">La Popote · Votre espace personnel<br><button onclick="signOut()">Se déconnecter</button></div>`;return;}
+const total=dashboard.balances.reduce((s,b)=>s+Number(b.balance),0),low=dashboard.stocks.filter(s=>s.known&&s.quantity<=s.threshold);
+app.innerHTML=`<div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Tableau de bord</h2><button style="width:auto" onclick="showAudit()">Journal</button><button style="width:auto" onclick="signOut()">Déconnexion</button></div><div class="grid"><div><div class="muted">Total restant dû</div><div class="amount">${money(total)}</div></div><div><div class="muted">Collègues</div><div class="amount">${dashboard.team.length}</div></div><div><div class="muted">Alertes stock</div><div class="amount">${low.length}</div></div></div><h3>Soldes des collègues</h3>${dashboard.balances.map(b=>{let m=dashboard.team.find(x=>x.id===b.memberId);return `<div class="item">${esc(m?.name||b.memberId)} <b style="float:right">${money(b.balance)}</b><div class="small">Report ${money(b.opening)} · Payé ${money(b.paid)}</div></div>`}).join("")}</div>
+<div class="card"><h3>Consommations</h3><select id="member">${dashboard.team.filter(m=>m.active).map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join("")}</select><select id="product">${dashboard.products.map(p=>`<option value="${p.id}">${esc(p.name)} — ${money(p.price)}</option>`).join("")}</select><input id="qty" type="number" min="1" max="20" value="1"><button onclick="adminConsume()">Enregistrer une consommation</button></div>
+<div class="card"><h3>Paiements</h3><select id="payMember">${dashboard.team.map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join("")}</select><input id="amount" type="number" min=".01" step=".01" placeholder="Montant en euros"><select id="method"><option>Virement</option><option>PayPal</option><option>Espèces</option><option>Autre</option></select><input id="reference" placeholder="Référence facultative"><button onclick="payment()">Enregistrer le paiement</button><h4>Historique récent</h4>${dashboard.payments.map(p=>{let m=dashboard.team.find(x=>x.id===p.memberId);return `<div class="item">${esc(p.date)} · ${esc(m?.name||"")} · ${esc(p.method)} · ${money(p.amount)} <button class="no-print" style="width:auto;padding:5px 8px;background:#9b3030" onclick="cancelPayment(${p.row})">Annuler</button></div>`}).join("")||"Aucun paiement"}</div>
+<div class="card"><h3>Dernières consommations</h3><p class="muted">Bleu : consommation enregistrée · Rose : écriture d'annulation · Gris : consommation déjà annulée</p>${dashboard.recent.map(x=>{let m=dashboard.team.find(t=>t.id===x.memberId),p=dashboard.products.find(t=>t.id===x.productId);const cls=x.isCancellation?"cancellation":(x.isCancelled?"cancelled-original":"");const badge=x.isCancellation?"ANNULATION":(x.isCancelled?"DÉJÀ ANNULÉE":"CONSOMMATION");const detail=x.isCancellation?`Annulation de ${esc(p?.name||"produit")} · ${Math.abs(Number(x.quantity))} unité(s) · ${money(x.total)}`:`${esc(p?.name||"")} × ${x.quantity} · ${money(x.total)}`;return `<div class="activity-item ${cls}"><div class="activity-meta"><span class="activity-badge">${badge}</span><span class="small">${esc(x.date)}</span></div><div class="activity-detail"><b>${esc(m?.name||"")}</b> · ${detail}</div>${!x.isCancellation&&!x.isCancelled?`<button class="no-print" style="width:auto;padding:5px 8px;background:#9b3030" onclick="cancelConsumption(${x.row})">Annuler</button>`:""}</div>`}).join("")||"Aucune consommation"}</div>
+<div class="card"><h3>Stocks par catégorie</h3><p class="muted">Les quantités restent inconnues tant que le premier inventaire n'est pas saisi.</p>${dashboard.stocks.map(s=>`<div class="item"><b>${esc(s.category)}</b> — ${s.known?s.quantity+" unité(s)":"Inventaire non renseigné"} ${s.known&&s.quantity<=s.threshold?'<span class="alert"> · Stock bas</span>':""}<div class="small">Seuil d'alerte : ${s.threshold===""?"non défini":s.threshold}</div></div>`).join("")}<h4>Mettre à jour un inventaire</h4><select id="stockCat">${dashboard.stocks.map(s=>`<option>${esc(s.category)}</option>`).join("")}</select><input id="stockQty" type="number" min="0" step="1" placeholder="Quantité comptée"><input id="stockThreshold" type="number" min="0" step="1" placeholder="Seuil d'alerte souhaité"><button onclick="saveStock()">Enregistrer l'inventaire</button></div>
+<div class="card"><h3>Achats / réapprovisionnement</h3><p class="muted">Un achat augmente le stock et est conservé dans l'historique des dépenses.</p><select id="purchaseCat">${dashboard.stocks.map(s=>`<option>${esc(s.category)}</option>`).join("")}</select><input id="purchaseQty" type="number" min="1" step="1" placeholder="Quantité achetée"><input id="unitCost" type="number" min="0" step=".01" placeholder="Coût d'achat unitaire (€)"><input id="store" placeholder="Magasin (facultatif)"><input id="purchaseRef" placeholder="Référence / ticket (facultatif)"><button onclick="buyStock()">Enregistrer l'achat</button><h4>Derniers achats</h4>${dashboard.purchases.map(p=>`<div class="item">${esc(p.date)} · ${esc(p.description)} · ${p.quantity} unité(s) · <b>${money(p.cost)}</b></div>`).join("")||"Aucun achat enregistré"}</div>
+<div class="card"><h3>Clôture mensuelle</h3><input type="month" id="month"><button onclick="previewReport()">Prévisualiser</button><div id="report"></div></div>
+<div class="card"><h3>Relevé individuel</h3><select id="statementMember">${dashboard.team.map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join("")}</select><button onclick="loadStatement()">Afficher</button><div id="statement"></div></div>
+<div class="card"><h3>Mon code administrateur</h3><input id="adminPinNew" inputmode="numeric" maxlength="6" placeholder="Nouveau code à 6 chiffres"><button onclick="changeAdminPin()">Modifier mon code administrateur</button><div class="small">Après modification, utilisez ce nouveau code lors de votre prochaine connexion.</div></div>
+<div class="card"><h3>Codes personnels</h3><select id="codeMember">${dashboard.team.map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join("")}</select><button onclick="newMemberCode()">Générer un code</button><div id="newCode"></div></div>`;
+month.value=new Date().toISOString().slice(0,7);}
+function setHistoryTab(tab){historyTab=tab;render();}
+function toggleMemberPanel(panel){if(panel==="history")memberHistoryOpen=!memberHistoryOpen;else if(panel==="payments")memberPaymentsOpen=!memberPaymentsOpen;render();}
+function memberHistoryHtml(tab=historyTab){
+  if(tab==="payments"){
+    const rows=dashboard.history.payments||[];
+    return rows.map(x=>{
+      const cls=x.isCancellation?"cancellation":(x.isCancelled?"cancelled-original":"");
+      const badge=x.isCancellation?"ANNULATION":(x.isCancelled?"PAIEMENT ANNULÉ":"PAIEMENT");
+      return `<div class="history-entry ${cls}"><div class="activity-meta"><span class="activity-badge">${badge}</span><span class="small">${esc(x.date)}</span></div><div><b>${money(x.amount)}</b> · ${esc(x.method||"Non précisé")}</div></div>`;
+    }).join("")||'<p class="muted">Aucun paiement enregistré pour le moment.</p>';
+  }
+  const rows=dashboard.history.consumptions||[];
+  return rows.map(x=>{
+    const cls=x.isCancellation?"cancellation":(x.isCancelled?"cancelled-original":"");
+    const badge=x.isCancellation?"ANNULATION":(x.isCancelled?"CONSOMMATION ANNULÉE":"CONSOMMATION");
+    return `<div class="history-entry ${cls}"><div class="activity-meta"><span class="activity-badge">${badge}</span><span class="small">${esc(x.date)}</span></div><div><b>${esc(x.product||"Produit")}</b> · ${Math.abs(Number(x.quantity))} unité(s) · <b>${money(x.amount)}</b></div></div>`;
+  }).join("")||'<p class="muted">Aucune consommation enregistrée pour le moment.</p>';
+}
+function consumptionGroup(name){
+  const n=String(name||"").toLocaleLowerCase("fr-FR").normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  if(/glace|mister\s*freeze|sorbet/.test(n))return "Glaces";
+  if(/bonbon|confiser|chewing|sucette/.test(n))return "Bonbons";
+  if(/barre|chocolat|cereal|cereale/.test(n))return "Barres";
+  if(/boisson|canette|soda|eau|jus|coca|orangina|oasis|ice\s*tea|the\s*glace|limonade|energy|red\s*bull/.test(n))return "Boissons";
+  return "Autres produits";
+}
+function consumptionCatalogHtml(){
+  const categories=[
+    {name:"Boissons",price:0.70},
+    {name:"Barres",price:0.60},
+    {name:"Bonbons",price:0.40},
+    {name:"Glaces",price:0.20}
+  ];
+  const products=dashboard.products||[];
+  const toAmount=value=>Number(String(value??"").replace(/[^0-9,.-]/g,"").replace(",","."));
+  return categories.map(category=>{
+    const p=products.find(item=>consumptionGroup(item.name)===category.name && Math.abs(toAmount(item.price)-category.price)<0.001);
+    return `<div class="consumption-product category-${category.name.toLocaleLowerCase("fr-FR")}"><span class="consumption-product-name">${category.name}</span><span class="consumption-product-price">${money(category.price)}</span>${p?`<button type="button" onclick="consumeProduct('${encodeURIComponent(String(p.id))}')">Consommer</button>`:'<button type="button" disabled>Indisponible</button>'}</div>`;
+  }).join("");
+}
+function consumeProduct(encodedId){
+  const productId=decodeURIComponent(encodedId);
+  call("addConsumption",[accessCode,productId,1],d=>{dashboard=d;render();celebrateConsumption();});
+}
+function celebrateConsumption(){const el=document.createElement("div");el.className="consume-celebration";el.setAttribute("role","status");el.setAttribute("aria-live","polite");el.innerHTML='<span class="celebration-check" aria-hidden="true">✓</span><strong>Consommation enregistrée !</strong><span>Bonne dégustation</span>';document.body.appendChild(el);window.setTimeout(()=>el.remove(),1700);}
+function consume(){call("addConsumption",[accessCode,product.value,qty.value],d=>{dashboard=d;render();celebrateConsumption();});}
+function adminConsume(){call("adminAddConsumption",[accessCode,member.value,product.value,qty.value],()=>{alert("Consommation enregistrée.");refresh();});}
+function payment(){call("adminAddPayment",[accessCode,payMember.value,amount.value,method.value,reference.value],()=>{alert("Paiement enregistré.");refresh();});}
+function cancelConsumption(row){if(!confirm("Annuler cette consommation ? Une écriture inverse sera ajoutée et le stock sera rétabli."))return;call("adminCancelConsumption",[accessCode,row],()=>{alert("Consommation annulée et tracée.");refresh();});}
+function cancelPayment(row){if(!confirm("Annuler ce paiement ? Une écriture inverse sera ajoutée, sans supprimer l'original."))return;call("adminCancelPayment",[accessCode,row],()=>{alert("Paiement annulé et tracé.");refresh();});}
+function saveStock(){call("setStockCount",[accessCode,stockCat.value,stockQty.value,stockThreshold.value],()=>{alert("Inventaire mis à jour.");refresh();});}
+function buyStock(){call("addPurchase",[accessCode,purchaseCat.value,purchaseQty.value,unitCost.value,store.value,purchaseRef.value],()=>{alert("Achat enregistré et stock augmenté.");refresh();});}
+function changeAdminPin(){call("adminSetPin",[accessCode,adminPinNew.value],()=>{alert("Code administrateur modifié. Notez-le en lieu sûr.");adminPinNew.value="";});}
+function newMemberCode(){call("adminSetMemberCode",[accessCode,codeMember.value],r=>newCode.innerHTML=`Nouveau code de ${esc(r.name)} : <b>${esc(r.code)}</b> — à transmettre en privé. Ce code ne sera plus affiché.`);}
+function previewReport(){call("getMonthlyReport",[accessCode,month.value],r=>{report.innerHTML=`<h4>Clôture ${r.month}</h4><table><tr><th>Collègue</th><th>Report</th><th>Consommations</th><th>Payé</th><th>Solde</th></tr>${r.rows.map(x=>`<tr><td>${esc(x.name)}</td><td>${money(x.opening)}</td><td>${money(x.consumptions)}</td><td>${money(x.payments)}</td><td>${money(x.closing)}</td></tr>`).join("")}<tr><th>TOTAL</th><th>${money(r.totals.opening)}</th><th>${money(r.totals.consumptions)}</th><th>${money(r.totals.payments)}</th><th>${money(r.totals.closing)}</th></tr></table><button onclick="saveReport()">Créer la feuille de clôture</button>`;});}
+function saveReport(){call("createMonthlyReport",[accessCode,month.value],()=>alert("Feuille MONTHLY_REPORT créée."));}
+function loadStatement(){call("getStatement",[accessCode,statementMember.value],s=>{statement.innerHTML=`<div class="card"><h2>Relevé — ${esc(s.name)}</h2><p>Report : ${money(s.opening)}</p><p>Total dû : ${money(s.totalDue)}</p><p>Total payé : ${money(s.totalPaid)}</p><h2>Solde : ${money(s.balance)}</h2></div><button onclick="window.print()">Imprimer / PDF</button>`;});}
+function refresh(){call("getDashboard",[accessCode],d=>{dashboard=d;render();});}
+function showAudit(){call("getAuditLog",[accessCode],rows=>{const w=window.open("","_blank");w.document.write("<h2>Journal La Popote</h2><table border=1 cellpadding=6><tr><th>Date</th><th>Admin</th><th>Action</th><th>Feuille</th><th>Ligne</th><th>Collègue</th><th>Détail</th></tr>"+rows.map(r=>"<tr>"+[r.date,r.admin,r.action,r.source,r.row,r.memberId,r.details].map(x=>"<td>"+esc(x)+"</td>").join("")+"</tr>").join("")+"</table>");});}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+resumeRemembered().catch(()=>{document.getElementById("login").classList.remove("hidden");document.getElementById("loginButton").disabled=false;document.getElementById("loginButton").textContent="Accéder à mon compte";document.getElementById("resumeStatus").classList.add("hidden");});
+</script></body></html>
